@@ -1,0 +1,580 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ODevs: Ignite the Summer — Call for Proposals</title>
+<meta name="description" content="Submit your 5-minute Ignite talk for ODevs: Ignite the Summer. 20 slides, 15 seconds each, all fire.">
+<meta property="og:title" content="ODevs: Ignite the Summer — Call for Proposals">
+<meta property="og:description" content="5 minutes. 20 slides. 15 seconds each. Pitch your Ignite talk to the Orlando dev community.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+<style>
+  :root {
+    /* ODevs brand: dark slate ground, blue accent (orlandodevs.com) */
+    --bg: #0f172a;
+    --bg-raise: #0b1222;
+    --bg-card: #1e293b;
+    --ink: #f1f5f9;
+    --ink-soft: #a3b3c8;
+    --brand: #2563eb;
+    --brand-soft: #60a5fa;
+    --brand-pale: #93c5fd;
+    /* summer fire: reserved for the "Ignite the Summer" identity — headline
+       gradient, format numbers, and the submit CTAs */
+    --ember: #ff5d3a;
+    --flame: #ff9438;
+    --sun: #ffc93f;
+    --line: rgba(148, 163, 184, .18);
+    --ok: #6fdc8c;
+    --err: #ff7a7a;
+    --radius: 14px;
+    --font: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    --font-display: "Anton", "Arial Narrow", Impact, sans-serif;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--font);
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+  a { color: var(--brand-soft); }
+  ::selection { background: var(--brand); color: #fff; }
+
+  .wrap { max-width: 1020px; margin: 0 auto; padding: 0 24px; }
+
+  /* ---------- Nav ---------- */
+  header.nav {
+    position: sticky; top: 0; z-index: 50;
+    background: rgba(15, 23, 42, .85);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--line);
+  }
+  .nav-inner {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 14px 24px; max-width: 1020px; margin: 0 auto;
+  }
+  .brand {
+    font-weight: 800; letter-spacing: .02em; text-decoration: none;
+    color: var(--ink); font-size: 1.05rem; display: flex; align-items: center; gap: 8px;
+  }
+  .brand .dot { color: var(--ember); }
+  .nav-links { display: flex; gap: 22px; align-items: center; }
+  .nav-links a {
+    color: var(--ink-soft); text-decoration: none; font-size: .92rem; font-weight: 500;
+  }
+  .nav-links a:hover { color: var(--ink); }
+  .nav-cta {
+    background: linear-gradient(120deg, var(--ember), var(--flame));
+    color: #1a0a05 !important; font-weight: 700 !important;
+    padding: 8px 16px; border-radius: 999px;
+  }
+  @media (max-width: 620px) { .nav-links a:not(.nav-cta) { display: none; } }
+
+  /* ---------- Hero ---------- */
+  .hero {
+    position: relative;
+    padding: 96px 0 110px;
+    text-align: center;
+    background:
+      radial-gradient(1100px 480px at 50% -12%, rgba(37, 99, 235, .30), transparent 68%),
+      radial-gradient(700px 380px at 82% 8%, rgba(96, 165, 250, .10), transparent 65%),
+      radial-gradient(620px 330px at 50% 20%, rgba(255, 148, 56, .10), transparent 62%);
+  }
+  .hero::after {
+    content: ""; position: absolute; inset: auto 0 0 0; height: 1px;
+    background: linear-gradient(90deg, transparent, var(--line), transparent);
+  }
+  .kicker {
+    display: inline-flex; align-items: center; gap: 8px;
+    border: 1px solid var(--line); border-radius: 999px;
+    padding: 6px 16px; font-size: .82rem; font-weight: 600;
+    letter-spacing: .09em; text-transform: uppercase; color: var(--brand-pale);
+    background: rgba(96, 165, 250, .08);
+    margin-bottom: 26px;
+  }
+  .kicker .pulse {
+    width: 8px; height: 8px; border-radius: 50%; background: var(--ok);
+    box-shadow: 0 0 0 0 rgba(111, 220, 140, .6); animation: pulse 2s infinite;
+  }
+  @keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(111, 220, 140, .55); }
+    70% { box-shadow: 0 0 0 9px rgba(111, 220, 140, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(111, 220, 140, 0); }
+  }
+  h1.title {
+    font-family: var(--font-display);
+    font-size: clamp(3rem, 8.5vw, 5.6rem);
+    line-height: 1.02; font-weight: 400; letter-spacing: .015em;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  h1 .grad {
+    background: linear-gradient(100deg, var(--sun) 0%, var(--flame) 45%, var(--ember) 100%);
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+  }
+  .hero .host {
+    font-size: 1.02rem; color: var(--ink-soft); font-weight: 600;
+    letter-spacing: .14em; text-transform: uppercase; margin-bottom: 22px;
+  }
+  .hero p.lede {
+    max-width: 620px; margin: 0 auto 38px; font-size: 1.18rem; color: var(--ink-soft);
+  }
+  .hero p.lede strong { color: var(--ink); }
+  .cta-row { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+  .btn {
+    display: inline-block; text-decoration: none; font-weight: 700;
+    border-radius: 999px; padding: 14px 30px; font-size: 1.02rem;
+    transition: transform .15s ease, box-shadow .15s ease;
+  }
+  .btn-fire {
+    background: linear-gradient(120deg, var(--ember), var(--flame));
+    color: #1a0a05; box-shadow: 0 8px 28px rgba(255, 93, 58, .35);
+  }
+  .btn-fire:hover { transform: translateY(-2px); box-shadow: 0 12px 34px rgba(255, 93, 58, .45); }
+  .btn-ghost { border: 1px solid var(--line); color: var(--ink); background: rgba(255,255,255,.03); }
+  .btn-ghost:hover { border-color: var(--brand-soft); }
+
+  /* ---------- Sections ---------- */
+  section { padding: 84px 0; }
+  .sec-kicker {
+    font-size: .8rem; font-weight: 700; letter-spacing: .14em;
+    text-transform: uppercase; color: var(--brand-soft); margin-bottom: 10px;
+  }
+  h2 {
+    font-family: var(--font-display);
+    font-size: clamp(1.7rem, 3.4vw, 2.3rem); font-weight: 400;
+    letter-spacing: .02em; text-transform: uppercase; margin-bottom: 14px;
+  }
+  .sec-lede { color: var(--ink-soft); max-width: 640px; font-size: 1.06rem; margin-bottom: 40px; }
+
+  /* format cards */
+  .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 18px; }
+  .card {
+    background: var(--bg-card); border: 1px solid var(--line);
+    border-radius: var(--radius); padding: 26px 24px;
+  }
+  .card .num {
+    font-family: var(--font-display);
+    font-size: 2.5rem; font-weight: 400; line-height: 1;
+    background: linear-gradient(120deg, var(--sun), var(--ember));
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+    margin-bottom: 10px;
+  }
+  .card h3 { font-size: 1.02rem; margin-bottom: 6px; }
+  .card p { color: var(--ink-soft); font-size: .93rem; }
+
+  /* topics */
+  .chips { display: flex; flex-wrap: wrap; gap: 10px; }
+  .chip {
+    border: 1px solid var(--line); border-radius: 999px; padding: 8px 18px;
+    font-size: .93rem; color: var(--ink-soft); background: rgba(148, 163, 184, .06);
+  }
+  .chips-note { margin-top: 22px; color: var(--ink-soft); font-size: .95rem; }
+
+  /* dates */
+  .timeline { display: grid; gap: 0; border-left: 2px solid var(--line); margin-left: 8px; }
+  .tl-item { position: relative; padding: 0 0 30px 30px; }
+  .tl-item:last-child { padding-bottom: 4px; }
+  .tl-item::before {
+    content: ""; position: absolute; left: -8px; top: 6px;
+    width: 14px; height: 14px; border-radius: 50%;
+    background: var(--bg); border: 3px solid var(--brand);
+  }
+  .tl-item .when { font-weight: 700; color: var(--brand-pale); font-size: .92rem; letter-spacing: .04em; }
+  .tl-item .what { font-weight: 600; font-size: 1.05rem; }
+  .tl-item .why { color: var(--ink-soft); font-size: .93rem; }
+
+  /* ---------- Form ---------- */
+  #cfp { scroll-margin-top: 80px; }
+  .form-shell {
+    background: var(--bg-card); border: 1px solid var(--line);
+    border-radius: 20px; padding: clamp(26px, 5vw, 46px);
+    box-shadow: 0 30px 80px rgba(0,0,0,.35);
+  }
+  .field { margin-bottom: 22px; }
+  .field label { display: block; font-weight: 600; font-size: .95rem; margin-bottom: 7px; }
+  .field .hint { font-weight: 400; color: var(--ink-soft); font-size: .85rem; margin-left: 6px; }
+  .field input[type="text"], .field input[type="email"], .field input[type="url"], .field textarea, .field select {
+    width: 100%; font: inherit; color: var(--ink);
+    background: var(--bg-raise); border: 1px solid var(--line);
+    border-radius: 10px; padding: 12px 14px; outline: none;
+    transition: border-color .15s ease, box-shadow .15s ease;
+  }
+  .field textarea { min-height: 130px; resize: vertical; }
+  .field input:focus, .field textarea:focus, .field select:focus {
+    border-color: var(--brand-soft); box-shadow: 0 0 0 3px rgba(59, 130, 246, .22);
+  }
+  .field .count { float: right; font-size: .8rem; color: var(--ink-soft); }
+  .radio-row { display: grid; gap: 10px; }
+  .radio-opt {
+    display: flex; gap: 12px; align-items: flex-start; cursor: pointer;
+    border: 1px solid var(--line); border-radius: 10px; padding: 12px 14px;
+    background: var(--bg-raise); transition: border-color .15s ease;
+  }
+  .radio-opt:hover { border-color: var(--brand-soft); }
+  .radio-opt input { margin-top: 4px; accent-color: var(--brand); }
+  .radio-opt .opt-title { font-weight: 600; font-size: .95rem; }
+  .radio-opt .opt-sub { color: var(--ink-soft); font-size: .85rem; }
+  .req::after { content: " *"; color: var(--err); }
+  .submit-row { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; margin-top: 30px; }
+  button.btn-fire { border: 0; cursor: pointer; font: inherit; }
+  button.btn-fire[disabled] { opacity: .6; cursor: wait; transform: none; }
+  .form-msg { font-size: .95rem; display: none; }
+  .form-msg.err { color: var(--err); display: block; }
+  .privacy { margin-top: 26px; color: var(--ink-soft); font-size: .84rem; }
+
+  /* success panel */
+  .success {
+    display: none; text-align: center; padding: 40px 10px;
+  }
+  .success.show { display: block; }
+  .success .flame-big { font-size: 3.4rem; margin-bottom: 14px; }
+  .success h3 { font-size: 1.6rem; margin-bottom: 10px; }
+  .success p { color: var(--ink-soft); max-width: 460px; margin: 0 auto; }
+
+  /* config warning (only shows if the Google Form isn't wired up yet) */
+  .not-configured {
+    display: none; border: 1px dashed var(--err); border-radius: var(--radius);
+    padding: 18px 20px; margin-bottom: 26px; font-size: .92rem; color: var(--err);
+    background: rgba(255, 122, 122, .06);
+  }
+  .not-configured.show { display: block; }
+  .not-configured code { color: var(--sun); }
+
+  /* footer */
+  footer {
+    border-top: 1px solid var(--line); padding: 44px 0 60px;
+    color: var(--ink-soft); font-size: .92rem;
+  }
+  .foot-inner { display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="#top">🔥 ODevs<span class="dot">·</span>Ignite the Summer</a>
+    <nav class="nav-links">
+      <a href="#format">The Format</a>
+      <a href="#topics">Topics</a>
+      <a href="#dates">Key Dates</a>
+      <a class="nav-cta" href="#cfp">Submit a Talk</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap">
+      <span class="kicker"><span class="pulse"></span> Call for Proposals is Open</span>
+      <p class="host">Orlando Devs Presents</p>
+      <h1 class="title">Ignite <span class="grad">the Summer</span></h1>
+      <p class="lede">
+        <strong>5 minutes. 20 slides. 15 seconds each — auto-advancing.</strong><br>
+        One summer night of rapid-fire talks from the Orlando tech community.
+        Got an idea burning a hole in your brain? This is your stage.
+      </p>
+      <div class="cta-row">
+        <a class="btn btn-fire" href="#cfp">🔥 Submit Your Talk</a>
+        <a class="btn btn-ghost" href="#format">What's an Ignite talk?</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="format">
+    <div class="wrap">
+      <p class="sec-kicker">The Format</p>
+      <h2>Enlighten us — but make it quick</h2>
+      <p class="sec-lede">
+        Ignite is a talk format built for momentum. Your slides advance automatically,
+        whether you're ready or not. It's exhilarating, a little terrifying, and the
+        most fun you'll ever have presenting.
+      </p>
+      <div class="cards">
+        <div class="card">
+          <div class="num">5</div>
+          <h3>Minutes total</h3>
+          <p>Every talk is exactly five minutes. No overtime, no mercy, no rambling Q&amp;A.</p>
+        </div>
+        <div class="card">
+          <div class="num">20</div>
+          <h3>Slides</h3>
+          <p>Exactly twenty slides. Big visuals beat bullet points — keep them punchy.</p>
+        </div>
+        <div class="card">
+          <div class="num">15</div>
+          <h3>Seconds per slide</h3>
+          <p>Slides auto-advance every 15 seconds. The clock is your co-presenter.</p>
+        </div>
+        <div class="card">
+          <div class="num">1</div>
+          <h3>Big idea</h3>
+          <p>One story, one lesson, one obsession. Depth over breadth — light the spark.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="topics">
+    <div class="wrap">
+      <p class="sec-kicker">Topics</p>
+      <h2>What should you talk about?</h2>
+      <p class="sec-lede">
+        Anything that would make a room full of Orlando developers lean in. Technical
+        deep-dives, career stories, spectacular failures, weird side projects — if it
+        lit you up, it'll light us up.
+      </p>
+      <div class="chips">
+        <span class="chip">AI &amp; LLMs in the wild</span>
+        <span class="chip">Web &amp; frontend</span>
+        <span class="chip">Cloud &amp; DevOps</span>
+        <span class="chip">Mobile</span>
+        <span class="chip">Data &amp; analytics</span>
+        <span class="chip">Security</span>
+        <span class="chip">Open source adventures</span>
+        <span class="chip">Career &amp; leadership</span>
+        <span class="chip">Postmortems &amp; war stories</span>
+        <span class="chip">Side projects &amp; hardware hacks</span>
+        <span class="chip">Dev tooling</span>
+        <span class="chip">Something we didn't think of</span>
+      </div>
+      <p class="chips-note">
+        ✨ <strong>First-time speakers are extremely welcome.</strong> Five minutes is the
+        perfect first talk, and we'll help you rehearse before the big night.
+      </p>
+    </div>
+  </section>
+
+  <section id="dates">
+    <div class="wrap">
+      <p class="sec-kicker">Key Dates</p>
+      <h2>The road to showtime</h2>
+      <p class="sec-lede">Mark your calendar — the summer moves fast and so do we.</p>
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="when">NOW</div>
+          <div class="what">CFP is open</div>
+          <div class="why">Submissions take about five minutes — fitting, right?</div>
+        </div>
+        <div class="tl-item">
+          <div class="when">JULY 31, 2026</div>
+          <div class="what">CFP closes</div>
+          <div class="why">Get your proposal in before midnight ET.</div>
+        </div>
+        <div class="tl-item">
+          <div class="when">AUGUST 7, 2026</div>
+          <div class="what">Speakers announced</div>
+          <div class="why">Everyone who submits hears back — accepted or not.</div>
+        </div>
+        <div class="tl-item">
+          <div class="when">AUGUST 20, 2026</div>
+          <div class="what">🔥 Ignite the Summer</div>
+          <div class="why">Doors at 6pm, talks at 7pm. Venue announced soon.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="cfp">
+    <div class="wrap">
+      <p class="sec-kicker">Call for Proposals</p>
+      <h2>Pitch your talk</h2>
+      <p class="sec-lede">
+        Tell us what you want to talk about. Don't overthink it — a clear idea and a
+        little enthusiasm go further than a polished abstract.
+      </p>
+
+      <div class="form-shell">
+        <div class="not-configured" id="notConfigured">
+          <strong>Organizer setup needed:</strong> this form isn't connected to Google Forms yet.
+          Open <code>index.html</code>, find the <code>GOOGLE_FORM</code> config block, and follow
+          <code>docs/google-form-setup.md</code> to wire in your form ID and entry IDs.
+        </div>
+
+        <form id="cfpForm" novalidate>
+          <div class="field">
+            <label for="f-name" class="req">Your name</label>
+            <input type="text" id="f-name" name="name" required autocomplete="name" placeholder="Ada Lovelace">
+          </div>
+
+          <div class="field">
+            <label for="f-email" class="req">Email</label>
+            <input type="email" id="f-email" name="email" required autocomplete="email" placeholder="you@example.com">
+          </div>
+
+          <div class="field">
+            <label for="f-title" class="req">Talk title<span class="hint">make it sizzle</span></label>
+            <input type="text" id="f-title" name="title" required maxlength="100" placeholder="How I Melted Production in 15 Seconds per Slide">
+          </div>
+
+          <div class="field">
+            <label for="f-abstract" class="req">
+              What's the talk about?
+              <span class="hint">2–5 sentences is plenty</span>
+              <span class="count" id="absCount">0 / 800</span>
+            </label>
+            <textarea id="f-abstract" name="abstract" required maxlength="800"
+              placeholder="What's the big idea? What will the audience walk away with?"></textarea>
+          </div>
+
+          <div class="field">
+            <label class="req">Speaking experience</label>
+            <div class="radio-row">
+              <label class="radio-opt">
+                <input type="radio" name="experience" value="First-time speaker" required>
+                <span><span class="opt-title">First-time speaker</span><br>
+                <span class="opt-sub">This would be my first talk — and that's exactly why I'm here.</span></span>
+              </label>
+              <label class="radio-opt">
+                <input type="radio" name="experience" value="Some experience">
+                <span><span class="opt-title">Some experience</span><br>
+                <span class="opt-sub">I've given a few talks at meetups or work.</span></span>
+              </label>
+              <label class="radio-opt">
+                <input type="radio" name="experience" value="Seasoned speaker">
+                <span><span class="opt-title">Seasoned speaker</span><br>
+                <span class="opt-sub">I speak regularly and love the auto-advance chaos.</span></span>
+              </label>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="f-bio">Short bio<span class="hint">optional — who are you?</span></label>
+            <textarea id="f-bio" name="bio" maxlength="400" style="min-height:90px"
+              placeholder="Orlando-based backend dev, rubber duck collector, recovering YAML author…"></textarea>
+          </div>
+
+          <div class="field">
+            <label for="f-link">Link<span class="hint">optional — GitHub, LinkedIn, portfolio, past talk…</span></label>
+            <input type="url" id="f-link" name="link" placeholder="https://">
+          </div>
+
+          <div class="submit-row">
+            <button type="submit" class="btn btn-fire" id="submitBtn">Send it 🔥</button>
+            <span class="form-msg" id="formMsg"></span>
+          </div>
+
+          <p class="privacy">
+            Submissions go straight to the ODevs organizers via Google Forms. We'll only use
+            your email to talk to you about your proposal.
+          </p>
+        </form>
+
+        <div class="success" id="successPanel">
+          <div class="flame-big">🔥🎤</div>
+          <h3>Your talk is in!</h3>
+          <p>
+            Thanks for throwing your idea on the fire. We'll review every submission and
+            get back to you by <strong>August 7</strong> — accepted or not, you'll hear from us.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap foot-inner">
+    <div>🔥 <strong>ODevs: Ignite the Summer</strong> — hosted by the Orlando Devs community</div>
+    <div>Questions? <a href="mailto:luis.hernandez093@gmail.com">Email the organizers</a></div>
+  </div>
+</footer>
+
+<script>
+/* ============================================================================
+   GOOGLE FORMS BACKEND — organizer configuration
+   ----------------------------------------------------------------------------
+   This page submits directly to a Google Form, so responses land in your
+   normal Forms responses view (and its linked Sheet) without visitors ever
+   seeing the Google Forms UI.
+
+   Follow docs/google-form-setup.md to create the form and find these values:
+     1. formId  — the long ID from your form's public URL:
+                  https://docs.google.com/forms/d/e/<FORM_ID>/viewform
+     2. fields  — the entry.NNNNNNNN ID for each question, taken from a
+                  pre-filled link.
+   ==========================================================================*/
+const GOOGLE_FORM = {
+  formId: "YOUR_FORM_ID_HERE",
+  fields: {
+    name:       "entry.0000000001",
+    email:      "entry.0000000002",
+    title:      "entry.0000000003",
+    abstract:   "entry.0000000004",
+    experience: "entry.0000000005", // radio — option text must match the Google Form exactly
+    bio:        "entry.0000000006",
+    link:       "entry.0000000007",
+  },
+};
+/* ========================== end configuration ============================ */
+
+const form = document.getElementById("cfpForm");
+const msg = document.getElementById("formMsg");
+const btn = document.getElementById("submitBtn");
+const isConfigured = !GOOGLE_FORM.formId.includes("YOUR_FORM_ID");
+
+if (!isConfigured) {
+  document.getElementById("notConfigured").classList.add("show");
+}
+
+// live character count on the abstract
+const abs = document.getElementById("f-abstract");
+const absCount = document.getElementById("absCount");
+abs.addEventListener("input", () => {
+  absCount.textContent = `${abs.value.length} / 800`;
+});
+
+form.addEventListener("submit", async (e) => {
+  e.preventDefault();
+  msg.className = "form-msg";
+  msg.textContent = "";
+
+  if (!form.reportValidity()) return;
+
+  if (!isConfigured) {
+    msg.textContent = "Submissions aren't open quite yet — check back soon!";
+    msg.classList.add("err");
+    return;
+  }
+
+  const data = new FormData();
+  const val = (name) => (form.elements[name].value || "").trim();
+  data.append(GOOGLE_FORM.fields.name, val("name"));
+  data.append(GOOGLE_FORM.fields.email, val("email"));
+  data.append(GOOGLE_FORM.fields.title, val("title"));
+  data.append(GOOGLE_FORM.fields.abstract, val("abstract"));
+  data.append(GOOGLE_FORM.fields.experience, form.elements["experience"].value);
+  data.append(GOOGLE_FORM.fields.bio, val("bio"));
+  data.append(GOOGLE_FORM.fields.link, val("link"));
+
+  btn.disabled = true;
+  btn.textContent = "Sending…";
+
+  try {
+    // no-cors: Google Forms doesn't send CORS headers, so the response is
+    // opaque — a resolved fetch means the POST was delivered.
+    await fetch(
+      `https://docs.google.com/forms/d/e/${GOOGLE_FORM.formId}/formResponse`,
+      { method: "POST", mode: "no-cors", body: data }
+    );
+    form.style.display = "none";
+    document.getElementById("notConfigured").classList.remove("show");
+    document.getElementById("successPanel").classList.add("show");
+    document.getElementById("successPanel").scrollIntoView({ behavior: "smooth", block: "center" });
+  } catch (err) {
+    msg.textContent = "Something went wrong sending your proposal. Please try again, or email us directly.";
+    msg.classList.add("err");
+    btn.disabled = false;
+    btn.textContent = "Send it 🔥";
+  }
+});
+</script>
+</body>
+</html>
