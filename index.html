@@ -118,26 +118,40 @@
     border-bottom: 1px solid var(--line);
   }
   .nav-inner {
-    display: flex; align-items: center; justify-content: space-between;
+    display: flex; align-items: center; gap: 20px;
     padding: 14px 24px; max-width: 1020px; margin: 0 auto;
   }
   .brand {
-    font-weight: 800; letter-spacing: .02em; text-decoration: none;
+    font-weight: 800; letter-spacing: .02em; text-decoration: none; white-space: nowrap;
     color: var(--ink); font-size: 1.05rem; display: flex; align-items: center; gap: 8px;
   }
   .brand .dot { color: var(--ember); }
   .brand-logo { width: 28px; height: 28px; color: var(--brand-soft); flex-shrink: 0; }
-  .nav-links { display: flex; gap: 22px; align-items: center; }
+  .nav-links { display: flex; gap: 18px; align-items: center; margin-left: auto; }
   .nav-links a {
     color: var(--ink-soft); text-decoration: none; font-size: .92rem; font-weight: 500;
+    white-space: nowrap;
   }
   .nav-links a:hover { color: var(--ink); }
   .nav-cta {
     background: linear-gradient(120deg, var(--ember), var(--flame));
-    color: #1a0a05 !important; font-weight: 700 !important;
-    padding: 8px 16px; border-radius: 999px;
+    color: #1a0a05; font-weight: 700; font-size: .92rem; text-decoration: none;
+    padding: 8px 16px; border-radius: 999px; white-space: nowrap;
   }
-  @media (max-width: 700px) { .nav-links a:not(.nav-cta) { display: none; } }
+  /* every section clears the sticky header when jumped to */
+  section[id] { scroll-margin-top: 80px; }
+
+  /* narrow screens: logo + Submit on the first row, section links on a
+     second row that scrolls sideways (no JavaScript needed) */
+  @media (max-width: 960px) {
+    .nav-inner { flex-wrap: wrap; justify-content: space-between; row-gap: 8px; padding: 10px 16px; }
+    .nav-links {
+      order: 3; width: 100%; margin-left: 0; gap: 20px;
+      overflow-x: auto; scrollbar-width: none; padding: 4px 2px 6px;
+    }
+    .nav-links::-webkit-scrollbar { display: none; }
+    section[id] { scroll-margin-top: 112px; }
+  }
 
   /* ---------- Hero ---------- */
   .hero {
@@ -261,7 +275,6 @@
   .tl-item .why { color: var(--ink-soft); font-size: .93rem; }
 
   /* ---------- CFP ---------- */
-  #cfp { scroll-margin-top: 80px; }
   .form-shell {
     background: var(--bg-card); border: 1px solid var(--line);
     border-radius: 20px; padding: clamp(26px, 5vw, 46px);
@@ -342,14 +355,17 @@
         <path d="M640.5,3619.5v603s567,927,2061,927,2061-927,2061-927v-603" fill="none" stroke="currentColor" stroke-width="255"/>
       </svg>
       Ignite the Holidays</a>
-    <nav class="nav-links">
-      <a href="#format">The Format</a>
+    <nav class="nav-links" aria-label="Page sections">
+      <a href="#format">Format</a>
       <a href="#topics">Topics</a>
       <a href="#dates">Key Dates</a>
+      <a href="#details">Details</a>
+      <a href="#speakers">Speakers</a>
       <a href="#attend">Attend</a>
+      <a href="#sponsors">Sponsors</a>
       <a href="#faq">FAQ</a>
-      <a class="nav-cta" href="https://forms.gle/wcGC6ooTzoR2qAAP6" target="_blank" rel="noopener" aria-label="Submit a talk (opens in new tab)">Submit a Talk</a>
     </nav>
+    <a class="nav-cta" href="https://forms.gle/wcGC6ooTzoR2qAAP6" target="_blank" rel="noopener" aria-label="Submit a talk (opens in new tab)">Submit a Talk</a>
   </div>
 </header>
 

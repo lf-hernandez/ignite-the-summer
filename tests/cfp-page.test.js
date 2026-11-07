@@ -22,6 +22,16 @@ describe("page structure", () => {
     }
   });
 
+  it("links every page section from the nav", () => {
+    const navTargets = [...document.querySelectorAll("nav.nav-links a")].map((a) =>
+      a.getAttribute("href")
+    );
+    for (const section of document.querySelectorAll("main section[id]")) {
+      if (section.id === "cfp") continue; // reached via the Submit button instead
+      expect(navTargets, `nav is missing #${section.id}`).toContain(`#${section.id}`);
+    }
+  });
+
   it("only references allowed external hosts", () => {
     const allowed = [
       "fonts.googleapis.com",
