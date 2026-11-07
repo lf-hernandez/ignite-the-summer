@@ -28,6 +28,7 @@ describe("page structure", () => {
       "fonts.gstatic.com",
       "orlandodevs.com",
       "forms.gle",
+      "discord.gg",
     ];
     for (const [, host] of html.matchAll(/https:\/\/([a-z0-9.-]+)/gi)) {
       expect(allowed, `unexpected external host ${host}`).toContain(host.toLowerCase());

@@ -11,7 +11,7 @@ One-time setup, ~10 minutes:
 ## 1. Create the Google Form
 
 Go to [forms.google.com](https://forms.google.com) and create a new form named
-**ODevs: Ignite the Summer — CFP** with these questions, **in this order**, using
+**Ignite The Holidays 2026 Call for Speakers** with these questions, **in this order**, using
 these exact types:
 
 | # | Question              | Type            | Required |
@@ -118,9 +118,8 @@ icon) so reviewing proposals is easy.
 ## 7. Deploy (GitHub Pages)
 
 1. Push this repo to GitHub.
-2. Repo **Settings → Pages → Source: Deploy from a branch**, branch `main`,
-   folder `/ (root)`.
-3. Your CFP goes live at `https://<user>.github.io/ignite-the-summer/`.
+2. The site deploys to Render as a static site (see `render.yaml`).
+3. Your CFP goes live at `https://ignitetheholidays.com`.
 
 ## Closing the CFP later
 
