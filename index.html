@@ -3,12 +3,13 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>ODevs: Ignite the Holidays 2026 | Call for Proposals</title>
-<meta name="description" content="Submit your 5-minute Ignite talk for ODevs: Ignite the Holidays 2026. 20 slides, 15 seconds each, all fire.">
-<meta property="og:title" content="ODevs: Ignite the Holidays 2026 | Call for Proposals">
+<title>Ignite the Holidays 2026 | Call for Proposals</title>
+<meta name="description" content="Submit your 5-minute Ignite talk for Ignite the Holidays 2026. 20 slides, 15 seconds each, all fire.">
+<meta property="og:title" content="Ignite the Holidays 2026 | Call for Proposals">
 <meta property="og:description" content="5 minutes. 20 slides. 15 seconds each. Pitch your Ignite talk to the Orlando dev community.">
 <meta property="og:type" content="website">
-<link rel="icon" href="assets/odevs-logo.svg" type="image/svg+xml">
+<meta name="theme-color" content="#0f172a">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
@@ -47,6 +48,29 @@
   }
   a { color: var(--brand-soft); }
   ::selection { background: var(--brand); color: #fff; }
+
+  /* keyboard focus: a clear, consistent ring for every interactive element */
+  :focus-visible {
+    outline: 3px solid var(--brand-soft);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  /* skip link: hidden until focused, then pinned top-left */
+  .skip-link {
+    position: absolute; left: 12px; top: -48px; z-index: 100;
+    background: var(--brand); color: #fff; text-decoration: none;
+    padding: 10px 16px; border-radius: 8px; font-weight: 700;
+    transition: top .15s ease;
+  }
+  .skip-link:focus-visible { top: 12px; }
+  main:focus { outline: none; }
+
+  /* respect users who prefer reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    * { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+    html { scroll-behavior: auto; }
+  }
 
   .wrap { max-width: 1020px; margin: 0 auto; padding: 0 24px; }
 
@@ -259,6 +283,8 @@
 </head>
 <body>
 
+<a class="skip-link" href="#top">Skip to main content</a>
+
 <header class="nav">
   <div class="nav-inner">
     <a class="brand" href="#top">
@@ -267,17 +293,17 @@
         <path d="M127.5,2188.5v1269h423s684,1206,2151,1206,2151-1206,2151-1206h423v-1287h-108S4771.5,127.5,2701.5,127.5,235.5,2188.5,235.5,2188.5h-108Z" fill="none" stroke="currentColor" stroke-width="255"/>
         <path d="M640.5,3619.5v603s567,927,2061,927,2061-927,2061-927v-603" fill="none" stroke="currentColor" stroke-width="255"/>
       </svg>
-      ODevs<span class="dot">·</span>Ignite the Holidays</a>
+      Ignite the Holidays</a>
     <nav class="nav-links">
       <a href="#format">The Format</a>
       <a href="#topics">Topics</a>
       <a href="#dates">Key Dates</a>
-      <a class="nav-cta" href="https://forms.gle/wcGC6ooTzoR2qAAP6" target="_blank" rel="noopener">Submit a Talk</a>
+      <a class="nav-cta" href="https://forms.gle/wcGC6ooTzoR2qAAP6" target="_blank" rel="noopener" aria-label="Submit a talk (opens in new tab)">Submit a Talk</a>
     </nav>
   </div>
 </header>
 
-<main id="top">
+<main id="top" tabindex="-1">
   <section class="hero">
     <div class="wrap">
       <span class="kicker"><span class="pulse"></span> Call for Proposals is Open</span>
@@ -289,7 +315,7 @@
         Got an idea burning a hole in your brain? This is your stage.
       </p>
       <div class="cta-row">
-        <a class="btn btn-fire" href="https://forms.gle/wcGC6ooTzoR2qAAP6" target="_blank" rel="noopener">🔥 Submit Your Talk</a>
+        <a class="btn btn-fire" href="https://forms.gle/wcGC6ooTzoR2qAAP6" target="_blank" rel="noopener" aria-label="Submit your talk (opens in new tab)"><span aria-hidden="true">🔥</span> Submit Your Talk</a>
         <a class="btn btn-ghost" href="#format">What's an Ignite talk?</a>
       </div>
     </div>
@@ -353,7 +379,7 @@
         <span class="chip">Something we didn't think of</span>
       </div>
       <p class="chips-note">
-        ✨ <strong>First-time speakers are extremely welcome.</strong> Five minutes is the
+        <span aria-hidden="true">✨</span> <strong>First-time speakers are extremely welcome.</strong> Five minutes is the
         perfect first talk, and we'll help you rehearse before the big night.
       </p>
     </div>
@@ -382,7 +408,7 @@
         </div>
         <div class="tl-item">
           <div class="when">DECEMBER 9, 2026</div>
-          <div class="what">🔥 Ignite the Holidays</div>
+          <div class="what"><span aria-hidden="true">🔥</span> Ignite the Holidays</div>
           <div class="why">Doors at 6pm, talks at 7pm. Venue announced soon.</div>
         </div>
       </div>
@@ -400,15 +426,15 @@
 
       <div class="form-shell">
         <div class="cfp-cta" id="cfpCta">
-          <div class="flame-big">🔥🎤</div>
+          <div class="flame-big" aria-hidden="true">🔥🎤</div>
           <h3>Submissions are open</h3>
           <p>
             Pitch your talk on our short Google Form: your name, a title, and a couple
             sentences on the idea. Takes about two minutes.
           </p>
           <div class="cta-row">
-            <a class="btn btn-fire" href="https://forms.gle/wcGC6ooTzoR2qAAP6" target="_blank" rel="noopener">🔥 Submit your talk</a>
-            <a class="btn btn-ghost" href="https://discord.gg/v6gchdH43K" target="_blank" rel="noopener">Join our Discord</a>
+            <a class="btn btn-fire" href="https://forms.gle/wcGC6ooTzoR2qAAP6" target="_blank" rel="noopener" aria-label="Submit your talk (opens in new tab)"><span aria-hidden="true">🔥</span> Submit your talk</a>
+            <a class="btn btn-ghost" href="https://discord.gg/v6gchdH43K" target="_blank" rel="noopener" aria-label="Join our Discord (opens in new tab)">Join our Discord</a>
           </div>
         </div>
       </div>
@@ -418,7 +444,7 @@
 
 <footer>
   <div class="wrap foot-inner">
-    <div>🔥 <strong>ODevs: Ignite the Holidays</strong>, hosted by the Orlando Devs community</div>
+    <div><span aria-hidden="true">🔥</span> <strong>Ignite the Holidays</strong>, hosted by the Orlando Devs community</div>
     <div>Questions? <a href="mailto:luis.hernandez093@gmail.com">Email the organizers</a></div>
   </div>
 </footer>

@@ -68,6 +68,35 @@ describe("Call for Proposals — Google Form", () => {
   });
 });
 
+describe("accessibility", () => {
+  const { document } = loadPage();
+
+  it("declares the document language", () => {
+    expect(document.documentElement.getAttribute("lang")).toBe("en");
+  });
+
+  it("has a skip link that targets the main landmark", () => {
+    const skip = document.querySelector(".skip-link");
+    expect(skip).toBeTruthy();
+    const target = skip.getAttribute("href").slice(1);
+    expect(document.getElementById(target)).toBeTruthy();
+  });
+
+  it("has exactly one h1", () => {
+    expect(document.querySelectorAll("h1")).toHaveLength(1);
+  });
+
+  it("hides decorative emoji from assistive tech", () => {
+    // every bare emoji should sit inside an aria-hidden container
+    const emojiHosts = [...document.querySelectorAll('[aria-hidden="true"]')]
+      .map((el) => el.textContent)
+      .join("");
+    for (const emoji of ["🔥", "🎤", "✨"]) {
+      expect(emojiHosts, `${emoji} should be aria-hidden`).toContain(emoji);
+    }
+  });
+});
+
 describe("branding", () => {
   const { document } = loadPage();
 
