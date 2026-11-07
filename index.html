@@ -21,8 +21,8 @@
   "@type": "Event",
   "name": "Ignite the Holidays 2026",
   "description": "An evening of 5-minute Ignite talks from the Orlando tech community: 20 slides, 15 seconds each, auto-advancing.",
-  "startDate": "2026-12-09T19:00:00-05:00",
-  "doorTime": "2026-12-09T18:00:00-05:00",
+  "startDate": "2026-12-10T19:00:00-05:00",
+  "doorTime": "2026-12-10T18:00:00-05:00",
   "eventStatus": "https://schema.org/EventScheduled",
   "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
   "location": {
@@ -137,7 +137,7 @@
     color: #1a0a05 !important; font-weight: 700 !important;
     padding: 8px 16px; border-radius: 999px;
   }
-  @media (max-width: 620px) { .nav-links a:not(.nav-cta) { display: none; } }
+  @media (max-width: 700px) { .nav-links a:not(.nav-cta) { display: none; } }
 
   /* ---------- Hero ---------- */
   .hero {
@@ -275,6 +275,34 @@
   .info-grid li + li { margin-top: 6px; }
   .info-grid address { font-style: normal; color: var(--ink-soft); font-size: .95rem; }
 
+  /* compact "coming soon" sections (speakers, attend) */
+  .sec-compact { padding: 64px 0; }
+  .soon {
+    display: inline-block; margin-bottom: 14px; padding: 4px 12px; border-radius: 999px;
+    font-size: .78rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
+    color: var(--brand-pale); border: 1px solid var(--line); background: rgba(96, 165, 250, .08);
+  }
+  .soon-card { max-width: 640px; }
+  .soon-card .sec-lede { margin-bottom: 0; }
+  .soon-card p + p, .soon-card p + .cta-row { margin-top: 14px; }
+  .soon-card .cta-row { justify-content: flex-start; }
+  .btn-sm { padding: 10px 20px; font-size: .95rem; }
+
+  /* FAQ: native <details> so it works without JavaScript */
+  .faq { max-width: 760px; border-top: 1px solid var(--line); }
+  .faq details { border-bottom: 1px solid var(--line); }
+  .faq summary {
+    cursor: pointer; list-style: none; padding: 18px 36px 18px 0; position: relative;
+    font-weight: 600; font-size: 1.02rem;
+  }
+  .faq summary::-webkit-details-marker { display: none; }
+  .faq summary::after {
+    content: "+"; position: absolute; right: 6px; top: 14px;
+    font-size: 1.4rem; line-height: 1.2; color: var(--brand-soft);
+  }
+  .faq details[open] summary::after { content: "\2212"; }
+  .faq details p { color: var(--ink-soft); padding: 0 0 20px; max-width: 680px; }
+
   /* CFP call-to-action panel (links out to the Google Form) */
   .cfp-cta { text-align: center; padding: 40px 10px; }
   .cfp-cta .flame-big { font-size: 3.4rem; margin-bottom: 14px; }
@@ -318,7 +346,8 @@
       <a href="#format">The Format</a>
       <a href="#topics">Topics</a>
       <a href="#dates">Key Dates</a>
-      <a href="#details">Details</a>
+      <a href="#attend">Attend</a>
+      <a href="#faq">FAQ</a>
       <a class="nav-cta" href="https://forms.gle/wcGC6ooTzoR2qAAP6" target="_blank" rel="noopener" aria-label="Submit a talk (opens in new tab)">Submit a Talk</a>
     </nav>
   </div>
@@ -331,8 +360,9 @@
       <p class="host">Orlando Devs presents</p>
       <h1 class="title">Ignite <span class="grad">the Holidays</span> 2026</h1>
       <p class="event-meta">
-        <time datetime="2026-12-09T19:00-05:00">Wednesday, December 9, 7pm</time>
+        <time datetime="2026-12-10T19:00-05:00">Thursday, December 10, 7pm</time>
         <span aria-hidden="true">·</span> Zymarium Meadery, Orlando
+        <span aria-hidden="true">·</span> <a href="#attend">Add to calendar</a>
       </p>
       <p class="lede">
         <strong>5 minutes. 20 slides. 15 seconds each. They advance on their own.</strong><br>
@@ -428,7 +458,7 @@
           <div class="why">Everyone who submits hears back, accepted or not.</div>
         </li>
         <li class="tl-item">
-          <time class="when" datetime="2026-12-09T18:00-05:00">Wednesday, December 9</time>
+          <time class="when" datetime="2026-12-10T18:00-05:00">Thursday, December 10</time>
           <div class="what"><span aria-hidden="true">🔥</span> Ignite the Holidays</div>
           <div class="why">Doors at 6pm, talks at 7pm at Zymarium Meadery.</div>
         </li>
@@ -505,6 +535,145 @@
             All talks follow the <a href="https://www.orlandodevs.com/code-of-conduct" target="_blank" rel="noopener" aria-label="Code of Conduct (opens in new tab)">Code of Conduct</a>.
           </p>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="speakers" class="sec-compact">
+    <div class="wrap">
+      <p class="sec-kicker">Speakers</p>
+      <h2>The lineup</h2>
+      <div class="soon-card">
+        <span class="soon">Announced December 7</span>
+        <p class="sec-lede">
+          We're still reading pitches. The full lineup of speakers and talk titles
+          lands here on Monday, December 7. Want your name on this list?
+          <a href="https://forms.gle/wcGC6ooTzoR2qAAP6" target="_blank" rel="noopener" aria-label="Submit a talk (opens in new tab)">Submit a talk</a>.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section id="attend" class="sec-compact">
+    <div class="wrap">
+      <p class="sec-kicker">Attend</p>
+      <h2>Come watch the sparks fly</h2>
+      <div class="soon-card">
+        <span class="soon">Tickets coming soon</span>
+        <p class="sec-lede">
+          Ticket and RSVP details are on the way. In the meantime, save the date:
+          Thursday, December 10 at Zymarium Meadery. Doors at 6pm, talks at 7pm.
+        </p>
+        <div class="cta-row">
+          <a class="btn btn-ghost btn-sm" href="assets/ignite-the-holidays-2026.ics" download aria-label="Add to calendar (downloads an .ics file)">Add to calendar (.ics)</a>
+          <a class="btn btn-ghost btn-sm" href="https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=Ignite+the+Holidays+2026&amp;dates=20261210T230000Z/20261210T230000Z&amp;location=Zymarium+Meadery,+1121+N+Mills+Ave,+Orlando,+FL+32803&amp;details=5-minute+Ignite+talks+from+the+Orlando+tech+community.+Doors+at+6pm,+talks+at+7pm.+https://ignitetheholidays.com/" target="_blank" rel="noopener" aria-label="Add to Google Calendar (opens in new tab)">Add to Google Calendar</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="sponsors" class="sec-compact">
+    <div class="wrap">
+      <p class="sec-kicker">Sponsors</p>
+      <h2>Fueling the fire</h2>
+      <div class="info-grid">
+        <div class="card">
+          <h3>Venue host</h3>
+          <p>
+            Thank you to <strong>Zymarium Meadery</strong> for opening their doors
+            to the Orlando tech community.
+          </p>
+        </div>
+        <div class="card">
+          <h3>Become a sponsor</h3>
+          <p>
+            Want to support Orlando's developer community and get in front of a room
+            full of local engineers? Message the event organizer (rwx0x5a) on our
+            <a href="https://discord.gg/v6gchdH43K" target="_blank" rel="noopener" aria-label="Discord (opens in new tab)">Discord</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="wrap">
+      <p class="sec-kicker">FAQ</p>
+      <h2>Questions, answered</h2>
+      <div class="faq">
+        <details>
+          <summary>What is an Ignite talk?</summary>
+          <p>
+            A five-minute talk with exactly 20 slides that advance automatically every
+            15 seconds. You can't skip ahead or go back, so it rewards a tight story and
+            big visuals. <a href="#format">More on the format</a>.
+          </p>
+        </details>
+        <details>
+          <summary>Do I need my slides ready to submit?</summary>
+          <p>
+            No. Just send a title and a couple of sentences about your idea. Accepted
+            speakers get slide specs and a deadline by email.
+          </p>
+        </details>
+        <details>
+          <summary>Can I submit more than one talk?</summary>
+          <p>Yes. Fill out the form once for each idea.</p>
+        </details>
+        <details>
+          <summary>I've never given a talk before. Should I still apply?</summary>
+          <p>
+            Absolutely. Five minutes is the perfect first talk, and first-time speakers
+            get help rehearsing before the big night.
+          </p>
+        </details>
+        <details>
+          <summary>Does my talk have to be technical?</summary>
+          <p>
+            Not at all. Career stories, lessons from failure, side projects and hobbies
+            all make great Ignite talks. If it would make a room of developers lean in,
+            pitch it.
+          </p>
+        </details>
+        <details>
+          <summary>Can I talk about my company's product?</summary>
+          <p>
+            You can talk about something you built or a problem your team solved, but
+            sales pitches won't be selected. Teach us something, tell us a story, or
+            make us laugh.
+          </p>
+        </details>
+        <details>
+          <summary>When will I hear back?</summary>
+          <p>
+            By Monday, December 7. Everyone who submits hears back, accepted or not.
+          </p>
+        </details>
+        <details>
+          <summary>How much does it cost to attend?</summary>
+          <p>
+            Ticket details are coming soon. Check the <a href="#attend">Attend</a>
+            section or join our Discord for updates.
+          </p>
+        </details>
+        <details>
+          <summary>Is this event for all ages?</summary>
+          <p>Yes, everyone is welcome.</p>
+        </details>
+        <details>
+          <summary>I need an accommodation. Who do I tell?</summary>
+          <p>
+            Mention it in your talk submission, or message the event organizer (rwx0x5a)
+            on Discord. We'll work with you and the venue.
+          </p>
+        </details>
+        <details>
+          <summary>I have a question that isn't here.</summary>
+          <p>
+            Ask in our <a href="https://discord.gg/v6gchdH43K" target="_blank" rel="noopener" aria-label="Discord (opens in new tab)">Discord</a>
+            and an organizer will get back to you.
+          </p>
+        </details>
       </div>
     </div>
   </section>

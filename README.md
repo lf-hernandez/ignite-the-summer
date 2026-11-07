@@ -39,9 +39,14 @@ Push to `main` and Render redeploys. Custom domain: **ignitetheholidays.com**.
 ## Things you'll want to edit
 
 - Key dates in the `#dates` timeline (CFP closes **Dec 5**, speakers announced
-  **Dec 7**, event **Dec 9, 2026** at Zymarium Meadery). Dates also live in
+  **Dec 7**, event **Dec 10, 2026** at Zymarium Meadery). Dates also live in
   the hero line and the JSON-LD `Event` block in `<head>`; keep all three in sync.
 - The `#details` section (venue, speaker info, accessibility).
+- `#speakers` and `#attend` are "coming soon" placeholders: swap in the lineup on
+  Dec 7 and the Eventbrite link once tickets are ready.
+- `#sponsors` and the `#faq` answers (cost, end time, etc. as they're decided).
+- `assets/ignite-the-holidays-2026.ics` and the Google Calendar link in `#attend`:
+  add an end time (`DTEND`) to both once it's known.
 - Contact: the footer points to Discord rather than a personal email address.
 - Topic chips in the `#topics` section.
 - The Google Form link and the Discord invite in the `#cfp` section.

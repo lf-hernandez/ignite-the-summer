@@ -32,6 +32,7 @@ describe("page structure", () => {
       "discord.gg",
       "www.google.com", // Google Maps link to the venue
       "www.linkedin.com", // organizer profile
+      "calendar.google.com", // "Add to Google Calendar" link
       "ignitetheholidays.com", // canonical / og:url
       "schema.org", // JSON-LD vocabulary, not a fetched resource
     ];
@@ -150,11 +151,30 @@ describe("event details and privacy", () => {
     expect(document.getElementById("details").textContent).toMatch(/all ages/i);
   });
 
+  it("has speakers, attend, sponsors and FAQ sections", () => {
+    for (const id of ["speakers", "attend", "sponsors", "faq"]) {
+      expect(document.getElementById(id), `missing #${id}`).toBeTruthy();
+    }
+    expect(document.querySelectorAll("#faq details > summary").length).toBeGreaterThanOrEqual(8);
+  });
+
+  it("offers a valid calendar invite for the event", () => {
+    const link = document.querySelector('#attend a[href$=".ics"]');
+    expect(link).toBeTruthy();
+    const ics = readFileSync(resolve(root, link.getAttribute("href")), "utf8");
+    expect(ics).toMatch(/^BEGIN:VCALENDAR\r\n/);
+    expect(ics).toMatch(/\r\nEND:VCALENDAR\r\n$/);
+    // 6pm Eastern (EST, UTC-5) on Dec 10 is 23:00 UTC
+    expect(ics).toContain("DTSTART:20261210T230000Z");
+    expect(ics).toContain("Zymarium Meadery");
+    expect(ics.split("\r\n").every((l) => l.length <= 75)).toBe(true);
+  });
+
   it("ships valid schema.org Event data", () => {
     const ld = JSON.parse(document.querySelector('script[type="application/ld+json"]').textContent);
     expect(ld["@type"]).toBe("Event");
     expect(ld.location.name).toBe("Zymarium Meadery");
-    expect(ld.startDate).toMatch(/^2026-12-09T19:00/);
+    expect(ld.startDate).toMatch(/^2026-12-10T19:00/);
   });
 });
 

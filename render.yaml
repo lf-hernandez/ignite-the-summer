@@ -21,6 +21,9 @@ services:
       - path: /*
         name: Permissions-Policy
         value: camera=(), microphone=(), geolocation=(), payment=(), usb=()
+      - path: /assets/*.ics
+        name: Content-Type
+        value: text/calendar; charset=utf-8
       - path: /*
         name: Content-Security-Policy
         value: >-
