@@ -27,8 +27,12 @@ describe("page structure", () => {
       "fonts.googleapis.com",
       "fonts.gstatic.com",
       "orlandodevs.com",
+      "www.orlandodevs.com",
       "forms.gle",
       "discord.gg",
+      "www.google.com", // Google Maps link to the venue
+      "ignitetheholidays.com", // canonical / og:url
+      "schema.org", // JSON-LD vocabulary, not a fetched resource
     ];
     for (const [, host] of html.matchAll(/https:\/\/([a-z0-9.-]+)/gi)) {
       expect(allowed, `unexpected external host ${host}`).toContain(host.toLowerCase());
@@ -94,6 +98,62 @@ describe("accessibility", () => {
     for (const emoji of ["🔥", "🎤", "✨"]) {
       expect(emojiHosts, `${emoji} should be aria-hidden`).toContain(emoji);
     }
+  });
+
+  it("keeps gradient text visible in forced-colors (high contrast) mode", () => {
+    expect(html).toMatch(/@media \(forced-colors: active\)/);
+  });
+
+  it("marks up the timeline as an ordered list with machine-readable dates", () => {
+    const items = document.querySelectorAll("#dates ol.timeline > li");
+    expect(items.length).toBeGreaterThanOrEqual(4);
+    expect(document.querySelectorAll("#dates time[datetime]").length).toBeGreaterThanOrEqual(3);
+  });
+
+  it("puts each format number inside its card heading", () => {
+    for (const num of document.querySelectorAll("#format .num")) {
+      expect(num.closest("h3")).toBeTruthy();
+    }
+  });
+
+  it("labels every new-tab link so screen reader users are warned", () => {
+    for (const a of document.querySelectorAll('a[target="_blank"]')) {
+      expect(a.getAttribute("rel")).toMatch(/noopener/);
+      expect(a.getAttribute("aria-label") ?? "").toMatch(/new tab/i);
+    }
+  });
+});
+
+describe("event details and privacy", () => {
+  const { document } = loadPage();
+
+  it("does not expose a personal email address", () => {
+    expect(document.querySelector('a[href^="mailto:"]')).toBeNull();
+    expect(html).not.toMatch(/@gmail\.com/i);
+  });
+
+  it("names the venue and address", () => {
+    const details = document.getElementById("details").textContent;
+    expect(details).toContain("Zymarium Meadery");
+    expect(details).toContain("1121 N Mills Ave");
+  });
+
+  it("links the code of conduct from the details, CFP and footer", () => {
+    const coc = 'a[href="https://www.orlandodevs.com/code-of-conduct"]';
+    for (const where of ["#details", "#cfp", "footer"]) {
+      expect(document.querySelector(`${where} ${coc}`), `CoC link missing in ${where}`).toBeTruthy();
+    }
+  });
+
+  it("states the age policy", () => {
+    expect(document.getElementById("details").textContent).toMatch(/all ages/i);
+  });
+
+  it("ships valid schema.org Event data", () => {
+    const ld = JSON.parse(document.querySelector('script[type="application/ld+json"]').textContent);
+    expect(ld["@type"]).toBe("Event");
+    expect(ld.location.name).toBe("Zymarium Meadery");
+    expect(ld.startDate).toMatch(/^2026-12-09T19:00/);
   });
 });
 

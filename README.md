@@ -11,8 +11,6 @@ Holidays 2026** event. 5-minute Ignite talks: 20 slides, 15 seconds each, auto-a
   No backend, no cost.
 - **`assets/odevs-logo.svg`** is the Orlando Devs mark, used in the nav and as
   the favicon.
-- **`docs/google-form-setup.md`** is the original guide for the (now retired)
-  embedded-form approach, kept for reference.
 
 The Google Form lives at `https://forms.gle/wcGC6ooTzoR2qAAP6`. Update that link
 in `index.html` if the form ever changes.
@@ -41,7 +39,9 @@ Push to `main` and Render redeploys. Custom domain: **ignitetheholidays.com**.
 ## Things you'll want to edit
 
 - Key dates in the `#dates` timeline (CFP closes **Dec 5**, speakers announced
-  **Dec 7**, event **Dec 9, 2026**) and the venue line.
-- Contact email in the footer.
+  **Dec 7**, event **Dec 9, 2026** at Zymarium Meadery). Dates also live in
+  the hero line and the JSON-LD `Event` block in `<head>`; keep all three in sync.
+- The `#details` section (venue, speaker info, accessibility).
+- Contact: the footer points to Discord rather than a personal email address.
 - Topic chips in the `#topics` section.
 - The Google Form link and the Discord invite in the `#cfp` section.

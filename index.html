@@ -8,7 +8,43 @@
 <meta property="og:title" content="Ignite the Holidays 2026 | Call for Proposals">
 <meta property="og:description" content="5 minutes. 20 slides. 15 seconds each. Pitch your Ignite talk to the Orlando dev community.">
 <meta property="og:type" content="website">
+<meta property="og:url" content="https://ignitetheholidays.com/">
+<meta property="og:site_name" content="Ignite the Holidays">
+<meta name="twitter:card" content="summary">
+<link rel="canonical" href="https://ignitetheholidays.com/">
 <meta name="theme-color" content="#0f172a">
+<!-- schema.org Event data for search results. A JSON data block is never
+     executed, so it is unaffected by the CSP's script-src 'none'. -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Event",
+  "name": "Ignite the Holidays 2026",
+  "description": "An evening of 5-minute Ignite talks from the Orlando tech community: 20 slides, 15 seconds each, auto-advancing.",
+  "startDate": "2026-12-09T19:00:00-05:00",
+  "doorTime": "2026-12-09T18:00:00-05:00",
+  "eventStatus": "https://schema.org/EventScheduled",
+  "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+  "location": {
+    "@type": "Place",
+    "name": "Zymarium Meadery",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "1121 N Mills Ave",
+      "addressLocality": "Orlando",
+      "addressRegion": "FL",
+      "postalCode": "32803",
+      "addressCountry": "US"
+    }
+  },
+  "organizer": {
+    "@type": "Organization",
+    "name": "Orlando Devs",
+    "url": "https://orlandodevs.com"
+  },
+  "url": "https://ignitetheholidays.com/"
+}
+</script>
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -149,6 +185,9 @@
     font-size: 1.02rem; color: var(--ink-soft); font-weight: 600;
     letter-spacing: .14em; text-transform: uppercase; margin-bottom: 22px;
   }
+  .hero .event-meta {
+    font-size: 1.05rem; font-weight: 600; color: var(--brand-pale); margin: 6px 0 22px;
+  }
   .hero p.lede {
     max-width: 620px; margin: 0 auto 38px; font-size: 1.18rem; color: var(--ink-soft);
   }
@@ -187,6 +226,7 @@
     border-radius: var(--radius); padding: 26px 24px;
   }
   .card .num {
+    display: block;
     font-family: var(--font-display);
     font-size: 2.5rem; font-weight: 400; line-height: 1;
     background: linear-gradient(120deg, var(--sun), var(--ember));
@@ -197,7 +237,7 @@
   .card p { color: var(--ink-soft); font-size: .93rem; }
 
   /* topics */
-  .chips { display: flex; flex-wrap: wrap; gap: 10px; }
+  .chips { display: flex; flex-wrap: wrap; gap: 10px; list-style: none; }
   .chip {
     border: 1px solid var(--line); border-radius: 999px; padding: 8px 18px;
     font-size: .93rem; color: var(--ink-soft); background: rgba(148, 163, 184, .06);
@@ -205,7 +245,7 @@
   .chips-note { margin-top: 22px; color: var(--ink-soft); font-size: .95rem; }
 
   /* dates */
-  .timeline { display: grid; gap: 0; border-left: 2px solid var(--line); margin-left: 8px; }
+  .timeline { display: grid; gap: 0; border-left: 2px solid var(--line); margin-left: 8px; list-style: none; }
   .tl-item { position: relative; padding: 0 0 30px 30px; }
   .tl-item:last-child { padding-bottom: 4px; }
   .tl-item::before {
@@ -213,57 +253,27 @@
     width: 14px; height: 14px; border-radius: 50%;
     background: var(--bg); border: 3px solid var(--brand);
   }
-  .tl-item .when { font-weight: 700; color: var(--brand-pale); font-size: .92rem; letter-spacing: .04em; }
+  .tl-item .when {
+    display: block; font-weight: 700; color: var(--brand-pale);
+    font-size: .92rem; letter-spacing: .04em; text-transform: uppercase;
+  }
   .tl-item .what { font-weight: 600; font-size: 1.05rem; }
   .tl-item .why { color: var(--ink-soft); font-size: .93rem; }
 
-  /* ---------- Form ---------- */
+  /* ---------- CFP ---------- */
   #cfp { scroll-margin-top: 80px; }
   .form-shell {
     background: var(--bg-card); border: 1px solid var(--line);
     border-radius: 20px; padding: clamp(26px, 5vw, 46px);
     box-shadow: 0 30px 80px rgba(0,0,0,.35);
   }
-  .field { margin-bottom: 22px; }
-  .field label { display: block; font-weight: 600; font-size: .95rem; margin-bottom: 7px; }
-  .field .hint { font-weight: 400; color: var(--ink-soft); font-size: .85rem; margin-left: 6px; }
-  .field input[type="text"], .field input[type="email"], .field input[type="url"], .field textarea, .field select {
-    width: 100%; font: inherit; color: var(--ink);
-    background: var(--bg-raise); border: 1px solid var(--line);
-    border-radius: 10px; padding: 12px 14px; outline: none;
-    transition: border-color .15s ease, box-shadow .15s ease;
-  }
-  .field textarea { min-height: 130px; resize: vertical; }
-  .field input:focus, .field textarea:focus, .field select:focus {
-    border-color: var(--brand-soft); box-shadow: 0 0 0 3px rgba(59, 130, 246, .22);
-  }
-  .field .count { float: right; font-size: .8rem; color: var(--ink-soft); }
-  .radio-row { display: grid; gap: 10px; }
-  .radio-opt {
-    display: flex; gap: 12px; align-items: flex-start; cursor: pointer;
-    border: 1px solid var(--line); border-radius: 10px; padding: 12px 14px;
-    background: var(--bg-raise); transition: border-color .15s ease;
-  }
-  .radio-opt:hover { border-color: var(--brand-soft); }
-  .radio-opt input { margin-top: 4px; accent-color: var(--brand); }
-  .radio-opt .opt-title { font-weight: 600; font-size: .95rem; }
-  .radio-opt .opt-sub { color: var(--ink-soft); font-size: .85rem; }
-  .req::after { content: " *"; color: var(--err); }
-  .submit-row { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; margin-top: 30px; }
-  button.btn-fire { border: 0; cursor: pointer; font: inherit; }
-  button.btn-fire[disabled] { opacity: .6; cursor: wait; transform: none; }
-  .form-msg { font-size: .95rem; display: none; }
-  .form-msg.err { color: var(--err); display: block; }
-  .privacy { margin-top: 26px; color: var(--ink-soft); font-size: .84rem; }
+  .privacy { margin-top: 26px; color: var(--ink-soft); font-size: .84rem; text-align: center; }
 
-  /* success panel */
-  .success {
-    display: none; text-align: center; padding: 40px 10px;
-  }
-  .success.show { display: block; }
-  .success .flame-big { font-size: 3.4rem; margin-bottom: 14px; }
-  .success h3 { font-size: 1.6rem; margin-bottom: 10px; }
-  .success p { color: var(--ink-soft); max-width: 460px; margin: 0 auto; }
+  /* speaker + attendee info */
+  .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 18px; }
+  .info-grid ul { padding-left: 1.2em; color: var(--ink-soft); font-size: .95rem; }
+  .info-grid li + li { margin-top: 6px; }
+  .info-grid address { font-style: normal; color: var(--ink-soft); font-size: .95rem; }
 
   /* CFP call-to-action panel (links out to the Google Form) */
   .cfp-cta { text-align: center; padding: 40px 10px; }
@@ -279,6 +289,16 @@
     color: var(--ink-soft); font-size: .92rem;
   }
   .foot-inner { display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
+
+  /* Windows High Contrast / forced colors: gradient-clipped text would turn
+     invisible, so fall back to the system text color. */
+  @media (forced-colors: active) {
+    h1 .grad, .card .num {
+      background: none; color: CanvasText;
+      -webkit-background-clip: border-box; background-clip: border-box;
+    }
+    .btn, .nav-cta { border: 1px solid ButtonText; }
+  }
 </style>
 </head>
 <body>
@@ -298,6 +318,7 @@
       <a href="#format">The Format</a>
       <a href="#topics">Topics</a>
       <a href="#dates">Key Dates</a>
+      <a href="#details">Details</a>
       <a class="nav-cta" href="https://forms.gle/wcGC6ooTzoR2qAAP6" target="_blank" rel="noopener" aria-label="Submit a talk (opens in new tab)">Submit a Talk</a>
     </nav>
   </div>
@@ -307,8 +328,12 @@
   <section class="hero">
     <div class="wrap">
       <span class="kicker"><span class="pulse"></span> Call for Proposals is Open</span>
-      <p class="host">Orlando Devs Presents</p>
+      <p class="host">Orlando Devs presents</p>
       <h1 class="title">Ignite <span class="grad">the Holidays</span> 2026</h1>
+      <p class="event-meta">
+        <time datetime="2026-12-09T19:00-05:00">Wednesday, December 9, 7pm</time>
+        <span aria-hidden="true">·</span> Zymarium Meadery, Orlando
+      </p>
       <p class="lede">
         <strong>5 minutes. 20 slides. 15 seconds each. They advance on their own.</strong><br>
         One holiday night of rapid-fire talks from the Orlando tech community.
@@ -332,23 +357,19 @@
       </p>
       <div class="cards">
         <div class="card">
-          <div class="num">5</div>
-          <h3>Minutes total</h3>
-          <p>Every talk is exactly five minutes. No overtime, no mercy, no rambling Q&amp;A.</p>
+          <h3><span class="num">5</span> Minutes total</h3>
+          <p>Every talk is exactly five minutes. No overtime and no Q&amp;A, so every second counts.</p>
         </div>
         <div class="card">
-          <div class="num">20</div>
-          <h3>Slides</h3>
+          <h3><span class="num">20</span> Slides</h3>
           <p>Exactly twenty slides. Big visuals beat bullet points, so keep them punchy.</p>
         </div>
         <div class="card">
-          <div class="num">15</div>
-          <h3>Seconds per slide</h3>
+          <h3><span class="num">15</span> Seconds per slide</h3>
           <p>Slides auto-advance every 15 seconds. The clock is your co-presenter.</p>
         </div>
         <div class="card">
-          <div class="num">1</div>
-          <h3>Big idea</h3>
+          <h3><span class="num">1</span> Big idea</h3>
           <p>One story, one lesson, one obsession. Go deep instead of wide and light the spark.</p>
         </div>
       </div>
@@ -364,20 +385,20 @@
         deep-dives, career stories, spectacular failures, weird side projects. If it
         lit you up, it'll light us up.
       </p>
-      <div class="chips">
-        <span class="chip">AI &amp; LLMs in the wild</span>
-        <span class="chip">Web &amp; frontend</span>
-        <span class="chip">Cloud &amp; DevOps</span>
-        <span class="chip">Mobile</span>
-        <span class="chip">Data &amp; analytics</span>
-        <span class="chip">Security</span>
-        <span class="chip">Open source adventures</span>
-        <span class="chip">Career &amp; leadership</span>
-        <span class="chip">Postmortems &amp; war stories</span>
-        <span class="chip">Side projects &amp; hardware hacks</span>
-        <span class="chip">Dev tooling</span>
-        <span class="chip">Something we didn't think of</span>
-      </div>
+      <ul class="chips">
+        <li class="chip">AI &amp; LLMs in the wild</li>
+        <li class="chip">Web &amp; frontend</li>
+        <li class="chip">Cloud &amp; DevOps</li>
+        <li class="chip">Mobile</li>
+        <li class="chip">Data &amp; analytics</li>
+        <li class="chip">Security</li>
+        <li class="chip">Open source adventures</li>
+        <li class="chip">Career &amp; leadership</li>
+        <li class="chip">Postmortems &amp; war stories</li>
+        <li class="chip">Side projects &amp; hardware hacks</li>
+        <li class="chip">Dev tooling</li>
+        <li class="chip">Something we didn't think of</li>
+      </ul>
       <p class="chips-note">
         <span aria-hidden="true">✨</span> <strong>First-time speakers are extremely welcome.</strong> Five minutes is the
         perfect first talk, and we'll help you rehearse before the big night.
@@ -390,26 +411,68 @@
       <p class="sec-kicker">Key Dates</p>
       <h2>The road to showtime</h2>
       <p class="sec-lede">Mark your calendar. The holidays move fast, and so do we.</p>
-      <div class="timeline">
-        <div class="tl-item">
-          <div class="when">NOW</div>
+      <ol class="timeline">
+        <li class="tl-item">
+          <span class="when">Now</span>
           <div class="what">CFP is open</div>
-          <div class="why">Submissions take about five minutes. Fitting, right?</div>
-        </div>
-        <div class="tl-item">
-          <div class="when">DECEMBER 5, 2026</div>
+          <div class="why">Submitting takes about two minutes.</div>
+        </li>
+        <li class="tl-item">
+          <time class="when" datetime="2026-12-05T23:59-05:00">Saturday, December 5</time>
           <div class="what">CFP closes</div>
-          <div class="why">Get your proposal in before midnight ET.</div>
-        </div>
-        <div class="tl-item">
-          <div class="when">DECEMBER 7, 2026</div>
+          <div class="why">Submit by 11:59pm Eastern.</div>
+        </li>
+        <li class="tl-item">
+          <time class="when" datetime="2026-12-07">Monday, December 7</time>
           <div class="what">Speakers announced</div>
           <div class="why">Everyone who submits hears back, accepted or not.</div>
-        </div>
-        <div class="tl-item">
-          <div class="when">DECEMBER 9, 2026</div>
+        </li>
+        <li class="tl-item">
+          <time class="when" datetime="2026-12-09T18:00-05:00">Wednesday, December 9</time>
           <div class="what"><span aria-hidden="true">🔥</span> Ignite the Holidays</div>
-          <div class="why">Doors at 6pm, talks at 7pm. Venue announced soon.</div>
+          <div class="why">Doors at 6pm, talks at 7pm at Zymarium Meadery.</div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section id="details">
+    <div class="wrap">
+      <p class="sec-kicker">Details</p>
+      <h2>Good to know</h2>
+      <div class="info-grid">
+        <div class="card">
+          <h3>The venue</h3>
+          <address>
+            Zymarium Meadery<br>
+            1121 N Mills Ave<br>
+            Orlando, FL 32803
+          </address>
+          <p>All ages welcome.</p>
+          <p><a href="https://www.google.com/maps/search/?api=1&amp;query=Zymarium+Meadery+1121+N+Mills+Ave+Orlando+FL+32803" target="_blank" rel="noopener" aria-label="Open in Google Maps (opens in new tab)">Open in Google Maps</a></p>
+        </div>
+        <div class="card">
+          <h3>If you're speaking</h3>
+          <ul>
+            <li>Accepted speakers get slide specs and a deadline by email.</li>
+            <li>First time? We'll pair you with someone to rehearse with.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Accessibility</h3>
+          <p>
+            Need an accommodation to attend or to speak? Let us know in your
+            submission or on our <a href="https://discord.gg/v6gchdH43K" target="_blank" rel="noopener" aria-label="Discord (opens in new tab)">Discord</a>
+            and we'll work with you and the venue to make it happen.
+          </p>
+        </div>
+        <div class="card">
+          <h3>Code of conduct</h3>
+          <p>
+            Everyone at Ignite the Holidays, including speakers, attendees and organizers,
+            follows the <a href="https://www.orlandodevs.com/code-of-conduct" target="_blank" rel="noopener" aria-label="Orlando Devs Code of Conduct (opens in new tab)">Orlando Devs Code of Conduct</a>.
+            If something isn't right, find an organizer at the event or reach out on Discord.
+          </p>
         </div>
       </div>
     </div>
@@ -430,12 +493,16 @@
           <h3>Submissions are open</h3>
           <p>
             Pitch your talk on our short Google Form: your name, a title, and a couple
-            sentences on the idea. Takes about two minutes.
+            sentences on the idea. It takes about two minutes.
           </p>
           <div class="cta-row">
             <a class="btn btn-fire" href="https://forms.gle/wcGC6ooTzoR2qAAP6" target="_blank" rel="noopener" aria-label="Submit your talk (opens in new tab)"><span aria-hidden="true">🔥</span> Submit your talk</a>
             <a class="btn btn-ghost" href="https://discord.gg/v6gchdH43K" target="_blank" rel="noopener" aria-label="Join our Discord (opens in new tab)">Join our Discord</a>
           </div>
+          <p class="privacy">
+            We only use what you submit to review talks and contact you about this event.
+            All talks follow the <a href="https://www.orlandodevs.com/code-of-conduct" target="_blank" rel="noopener" aria-label="Code of Conduct (opens in new tab)">Code of Conduct</a>.
+          </p>
         </div>
       </div>
     </div>
@@ -444,8 +511,9 @@
 
 <footer>
   <div class="wrap foot-inner">
-    <div><span aria-hidden="true">🔥</span> <strong>Ignite the Holidays</strong>, hosted by the Orlando Devs community</div>
-    <div>Questions? <a href="mailto:luis.hernandez093@gmail.com">Email the organizers</a></div>
+    <div><span aria-hidden="true">🔥</span> <strong>Ignite the Holidays</strong>, hosted by <a href="https://orlandodevs.com" target="_blank" rel="noopener" aria-label="Orlando Devs (opens in new tab)">Orlando Devs</a></div>
+    <div><a href="https://www.orlandodevs.com/code-of-conduct" target="_blank" rel="noopener" aria-label="Code of Conduct (opens in new tab)">Code of Conduct</a></div>
+    <div>Questions? <a href="https://discord.gg/v6gchdH43K" target="_blank" rel="noopener" aria-label="Ask the organizers on Discord (opens in new tab)">Ask the organizers on Discord</a></div>
   </div>
 </footer>
 </body>
