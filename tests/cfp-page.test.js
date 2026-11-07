@@ -31,6 +31,7 @@ describe("page structure", () => {
       "forms.gle",
       "discord.gg",
       "www.google.com", // Google Maps link to the venue
+      "www.linkedin.com", // organizer profile
       "ignitetheholidays.com", // canonical / og:url
       "schema.org", // JSON-LD vocabulary, not a fetched resource
     ];
