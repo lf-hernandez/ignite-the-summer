@@ -3,11 +3,12 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>ODevs: Ignite the Holidays — Call for Proposals</title>
-<meta name="description" content="Submit your 5-minute Ignite talk for ODevs: Ignite the Holidays. 20 slides, 15 seconds each, all fire.">
-<meta property="og:title" content="ODevs: Ignite the Holidays — Call for Proposals">
+<title>ODevs: Ignite the Holidays 2026 — Call for Proposals</title>
+<meta name="description" content="Submit your 5-minute Ignite talk for ODevs: Ignite the Holidays 2026. 20 slides, 15 seconds each, all fire.">
+<meta property="og:title" content="ODevs: Ignite the Holidays 2026 — Call for Proposals">
 <meta property="og:description" content="5 minutes. 20 slides. 15 seconds each. Pitch your Ignite talk to the Orlando dev community.">
 <meta property="og:type" content="website">
+<link rel="icon" href="assets/odevs-logo.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
@@ -65,6 +66,7 @@
     color: var(--ink); font-size: 1.05rem; display: flex; align-items: center; gap: 8px;
   }
   .brand .dot { color: var(--ember); }
+  .brand-logo { width: 28px; height: 28px; color: var(--brand-soft); flex-shrink: 0; }
   .nav-links { display: flex; gap: 22px; align-items: center; }
   .nav-links a {
     color: var(--ink-soft); text-decoration: none; font-size: .92rem; font-weight: 500;
@@ -239,14 +241,13 @@
   .success h3 { font-size: 1.6rem; margin-bottom: 10px; }
   .success p { color: var(--ink-soft); max-width: 460px; margin: 0 auto; }
 
-  /* config warning (only shows if the Google Form isn't wired up yet) */
-  .not-configured {
-    display: none; border: 1px dashed var(--err); border-radius: var(--radius);
-    padding: 18px 20px; margin-bottom: 26px; font-size: .92rem; color: var(--err);
-    background: rgba(255, 122, 122, .06);
-  }
-  .not-configured.show { display: block; }
-  .not-configured code { color: var(--sun); }
+  /* CFP call-to-action panel (links out to the Google Form) */
+  .cfp-cta { text-align: center; padding: 40px 10px; }
+  .cfp-cta .flame-big { font-size: 3.4rem; margin-bottom: 14px; }
+  .cfp-cta h3 { font-size: 1.8rem; margin-bottom: 12px; }
+  .cfp-cta p { color: var(--ink-soft); max-width: 500px; margin: 0 auto; }
+  .cfp-cta p a { color: var(--brand-soft); }
+  .cfp-cta .cta-row { justify-content: center; margin-top: 28px; }
 
   /* footer */
   footer {
@@ -260,12 +261,18 @@
 
 <header class="nav">
   <div class="nav-inner">
-    <a class="brand" href="#top">🔥 ODevs<span class="dot">·</span>Ignite the Holidays</a>
+    <a class="brand" href="#top">
+      <svg class="brand-logo" viewBox="0 0 5403 5403" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+        <path d="M2701.5,847.5c-1494,0-1953,936-1953,936v1422s459,909,1953,918,1953-918,1953-918v-1422s-459-936-1953-936ZM1684.5,2485.5l-558,288v-198l378-180-378-162v-216l558,288v180ZM2746.5,3169.5h-972v-180h972v180Z" fill="currentColor"/>
+        <path d="M127.5,2188.5v1269h423s684,1206,2151,1206,2151-1206,2151-1206h423v-1287h-108S4771.5,127.5,2701.5,127.5,235.5,2188.5,235.5,2188.5h-108Z" fill="none" stroke="currentColor" stroke-width="255"/>
+        <path d="M640.5,3619.5v603s567,927,2061,927,2061-927,2061-927v-603" fill="none" stroke="currentColor" stroke-width="255"/>
+      </svg>
+      ODevs<span class="dot">·</span>Ignite the Holidays</a>
     <nav class="nav-links">
       <a href="#format">The Format</a>
       <a href="#topics">Topics</a>
       <a href="#dates">Key Dates</a>
-      <a class="nav-cta" href="#cfp">Submit a Talk</a>
+      <a class="nav-cta" href="https://forms.gle/wcGC6ooTzoR2qAAP6" target="_blank" rel="noopener">Submit a Talk</a>
     </nav>
   </div>
 </header>
@@ -275,14 +282,14 @@
     <div class="wrap">
       <span class="kicker"><span class="pulse"></span> Call for Proposals is Open</span>
       <p class="host">Orlando Devs Presents</p>
-      <h1 class="title">Ignite <span class="grad">the Holidays</span></h1>
+      <h1 class="title">Ignite <span class="grad">the Holidays</span> 2026</h1>
       <p class="lede">
         <strong>5 minutes. 20 slides. 15 seconds each — auto-advancing.</strong><br>
         One holiday night of rapid-fire talks from the Orlando tech community.
         Got an idea burning a hole in your brain? This is your stage.
       </p>
       <div class="cta-row">
-        <a class="btn btn-fire" href="#cfp">🔥 Submit Your Talk</a>
+        <a class="btn btn-fire" href="https://forms.gle/wcGC6ooTzoR2qAAP6" target="_blank" rel="noopener">🔥 Submit Your Talk</a>
         <a class="btn btn-ghost" href="#format">What's an Ignite talk?</a>
       </div>
     </div>
@@ -364,17 +371,17 @@
           <div class="why">Submissions take about five minutes — fitting, right?</div>
         </div>
         <div class="tl-item">
-          <div class="when">JULY 31, 2026</div>
+          <div class="when">DECEMBER 5, 2026</div>
           <div class="what">CFP closes</div>
           <div class="why">Get your proposal in before midnight ET.</div>
         </div>
         <div class="tl-item">
-          <div class="when">AUGUST 7, 2026</div>
+          <div class="when">DECEMBER 7, 2026</div>
           <div class="what">Speakers announced</div>
           <div class="why">Everyone who submits hears back — accepted or not.</div>
         </div>
         <div class="tl-item">
-          <div class="when">AUGUST 20, 2026</div>
+          <div class="when">DECEMBER 9, 2026</div>
           <div class="what">🔥 Ignite the Holidays</div>
           <div class="why">Doors at 6pm, talks at 7pm. Venue announced soon.</div>
         </div>
@@ -392,88 +399,17 @@
       </p>
 
       <div class="form-shell">
-        <div class="not-configured" id="notConfigured">
-          <strong>Organizer setup needed:</strong> this form isn't connected to Google Forms yet.
-          Open <code>index.html</code>, find the <code>GOOGLE_FORM</code> config block, and follow
-          <code>docs/google-form-setup.md</code> to wire in your form ID and entry IDs.
-        </div>
-
-        <form id="cfpForm" novalidate>
-          <div class="field">
-            <label for="f-name" class="req">Your name</label>
-            <input type="text" id="f-name" name="name" required autocomplete="name" placeholder="Ada Lovelace">
-          </div>
-
-          <div class="field">
-            <label for="f-email" class="req">Email</label>
-            <input type="email" id="f-email" name="email" required autocomplete="email" placeholder="you@example.com">
-          </div>
-
-          <div class="field">
-            <label for="f-title" class="req">Talk title<span class="hint">make it sizzle</span></label>
-            <input type="text" id="f-title" name="title" required maxlength="100" placeholder="How I Melted Production in 15 Seconds per Slide">
-          </div>
-
-          <div class="field">
-            <label for="f-abstract" class="req">
-              What's the talk about?
-              <span class="hint">2–5 sentences is plenty</span>
-              <span class="count" id="absCount">0 / 800</span>
-            </label>
-            <textarea id="f-abstract" name="abstract" required maxlength="800"
-              placeholder="What's the big idea? What will the audience walk away with?"></textarea>
-          </div>
-
-          <div class="field">
-            <label class="req">Speaking experience</label>
-            <div class="radio-row">
-              <label class="radio-opt">
-                <input type="radio" name="experience" value="First-time speaker" required>
-                <span><span class="opt-title">First-time speaker</span><br>
-                <span class="opt-sub">This would be my first talk — and that's exactly why I'm here.</span></span>
-              </label>
-              <label class="radio-opt">
-                <input type="radio" name="experience" value="Some experience">
-                <span><span class="opt-title">Some experience</span><br>
-                <span class="opt-sub">I've given a few talks at meetups or work.</span></span>
-              </label>
-              <label class="radio-opt">
-                <input type="radio" name="experience" value="Seasoned speaker">
-                <span><span class="opt-title">Seasoned speaker</span><br>
-                <span class="opt-sub">I speak regularly and love the auto-advance chaos.</span></span>
-              </label>
-            </div>
-          </div>
-
-          <div class="field">
-            <label for="f-bio">Short bio<span class="hint">optional — who are you?</span></label>
-            <textarea id="f-bio" name="bio" maxlength="400" style="min-height:90px"
-              placeholder="Orlando-based backend dev, rubber duck collector, recovering YAML author…"></textarea>
-          </div>
-
-          <div class="field">
-            <label for="f-link">Link<span class="hint">optional — GitHub, LinkedIn, portfolio, past talk…</span></label>
-            <input type="url" id="f-link" name="link" placeholder="https://">
-          </div>
-
-          <div class="submit-row">
-            <button type="submit" class="btn btn-fire" id="submitBtn">Send it 🔥</button>
-            <span class="form-msg" id="formMsg"></span>
-          </div>
-
-          <p class="privacy">
-            Submissions go straight to the ODevs organizers via Google Forms. We'll only use
-            your email to talk to you about your proposal.
-          </p>
-        </form>
-
-        <div class="success" id="successPanel">
+        <div class="cfp-cta" id="cfpCta">
           <div class="flame-big">🔥🎤</div>
-          <h3>Your talk is in!</h3>
+          <h3>Submissions are open</h3>
           <p>
-            Thanks for throwing your idea on the fire. We'll review every submission and
-            get back to you by <strong>August 7</strong> — accepted or not, you'll hear from us.
+            Pitch your talk on our short Google Form — your name, a title, and a couple
+            sentences on the idea. It takes about two minutes.
           </p>
+          <div class="cta-row">
+            <a class="btn btn-fire" href="https://forms.gle/wcGC6ooTzoR2qAAP6" target="_blank" rel="noopener">🔥 Submit your talk</a>
+            <a class="btn btn-ghost" href="https://orlandodevs.com" target="_blank" rel="noopener">Visit orlandodevs.com</a>
+          </div>
         </div>
       </div>
     </div>
@@ -486,95 +422,5 @@
     <div>Questions? <a href="mailto:luis.hernandez093@gmail.com">Email the organizers</a></div>
   </div>
 </footer>
-
-<script>
-/* ============================================================================
-   GOOGLE FORMS BACKEND — organizer configuration
-   ----------------------------------------------------------------------------
-   This page submits directly to a Google Form, so responses land in your
-   normal Forms responses view (and its linked Sheet) without visitors ever
-   seeing the Google Forms UI.
-
-   Follow docs/google-form-setup.md to create the form and find these values:
-     1. formId  — the long ID from your form's public URL:
-                  https://docs.google.com/forms/d/e/<FORM_ID>/viewform
-     2. fields  — the entry.NNNNNNNN ID for each question, taken from a
-                  pre-filled link.
-   ==========================================================================*/
-const GOOGLE_FORM = {
-  formId: "YOUR_FORM_ID_HERE",
-  fields: {
-    name:       "entry.0000000001",
-    email:      "entry.0000000002",
-    title:      "entry.0000000003",
-    abstract:   "entry.0000000004",
-    experience: "entry.0000000005", // radio — option text must match the Google Form exactly
-    bio:        "entry.0000000006",
-    link:       "entry.0000000007",
-  },
-};
-/* ========================== end configuration ============================ */
-
-const form = document.getElementById("cfpForm");
-const msg = document.getElementById("formMsg");
-const btn = document.getElementById("submitBtn");
-const isConfigured = !GOOGLE_FORM.formId.includes("YOUR_FORM_ID");
-
-if (!isConfigured) {
-  document.getElementById("notConfigured").classList.add("show");
-}
-
-// live character count on the abstract
-const abs = document.getElementById("f-abstract");
-const absCount = document.getElementById("absCount");
-abs.addEventListener("input", () => {
-  absCount.textContent = `${abs.value.length} / 800`;
-});
-
-form.addEventListener("submit", async (e) => {
-  e.preventDefault();
-  msg.className = "form-msg";
-  msg.textContent = "";
-
-  if (!form.reportValidity()) return;
-
-  if (!isConfigured) {
-    msg.textContent = "Submissions aren't open quite yet — check back soon!";
-    msg.classList.add("err");
-    return;
-  }
-
-  const data = new FormData();
-  const val = (name) => (form.elements[name].value || "").trim();
-  data.append(GOOGLE_FORM.fields.name, val("name"));
-  data.append(GOOGLE_FORM.fields.email, val("email"));
-  data.append(GOOGLE_FORM.fields.title, val("title"));
-  data.append(GOOGLE_FORM.fields.abstract, val("abstract"));
-  data.append(GOOGLE_FORM.fields.experience, form.elements["experience"].value);
-  data.append(GOOGLE_FORM.fields.bio, val("bio"));
-  data.append(GOOGLE_FORM.fields.link, val("link"));
-
-  btn.disabled = true;
-  btn.textContent = "Sending…";
-
-  try {
-    // no-cors: Google Forms doesn't send CORS headers, so the response is
-    // opaque — a resolved fetch means the POST was delivered.
-    await fetch(
-      `https://docs.google.com/forms/d/e/${GOOGLE_FORM.formId}/formResponse`,
-      { method: "POST", mode: "no-cors", body: data }
-    );
-    form.style.display = "none";
-    document.getElementById("notConfigured").classList.remove("show");
-    document.getElementById("successPanel").classList.add("show");
-    document.getElementById("successPanel").scrollIntoView({ behavior: "smooth", block: "center" });
-  } catch (err) {
-    msg.textContent = "Something went wrong sending your proposal. Please try again, or email us directly.";
-    msg.classList.add("err");
-    btn.disabled = false;
-    btn.textContent = "Send it 🔥";
-  }
-});
-</script>
 </body>
 </html>
