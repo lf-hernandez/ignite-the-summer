@@ -42,11 +42,13 @@ Push to `main` and Render redeploys. Custom domain: **ignitetheholidays.com**.
   **Dec 7**, event **Dec 10, 2026** at Zymarium Meadery). Dates also live in
   the hero line and the JSON-LD `Event` block in `<head>`; keep all three in sync.
 - The `#details` section (venue, speaker info, accessibility).
-- `#speakers` and `#attend` are "coming soon" placeholders: swap in the lineup on
-  Dec 7 and the Eventbrite link once tickets are ready.
+- `#speakers` is a "coming soon" placeholder: swap in the lineup on Dec 7.
+- `#attend` has the Eventbrite link, the $10 price, and the refund policy. The
+  price also lives in the JSON-LD `offers` block and the FAQ; keep them in sync.
+  (The page is link-out only: the CSP blocks Eventbrite's embed widget.)
 - `#sponsors` and the `#faq` answers (cost, end time, etc. as they're decided).
 - `assets/ignite-the-holidays-2026.ics` and the Google Calendar link in `#attend`:
-  add an end time (`DTEND`) to both once it's known.
+  both end at 9pm ET (`DTEND`).
 - Contact: the footer points to Discord rather than a personal email address.
 - Topic chips in the `#topics` section.
 - The Google Form link and the Discord invite in the `#cfp` section.

@@ -42,6 +42,15 @@
     "name": "Orlando Devs",
     "url": "https://orlandodevs.com"
   },
+  "endDate": "2026-12-10T21:00:00-05:00",
+  "isAccessibleForFree": false,
+  "offers": {
+    "@type": "Offer",
+    "url": "https://www.eventbrite.com/e/ignite-the-holidays-2026-tickets-2004552256761?aff=oddtdtcreator",
+    "price": "10",
+    "priceCurrency": "USD",
+    "availability": "https://schema.org/InStock"
+  },
   "url": "https://ignitetheholidays.com/"
 }
 </script>
@@ -295,6 +304,13 @@
     font-size: .78rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
     color: var(--brand-pale); border: 1px solid var(--line); background: rgba(96, 165, 250, .08);
   }
+  .ticket-card .soon { color: var(--ink); background: rgba(255, 93, 58, .14); border-color: rgba(255, 93, 58, .45); }
+  .ticket-card .price { font-size: 2.4rem; font-weight: 800; line-height: 1.1; color: var(--ink); margin-bottom: 10px; }
+  .ticket-card .price span { font-size: .95rem; font-weight: 500; color: var(--ink-soft); }
+  .ticket-card .cta-row { margin-top: 18px; }
+  .facts { list-style: none; padding-left: 0 !important; }
+  .facts address { display: inline; }
+  .save-date { margin-top: 22px; }
   .soon-card { max-width: 640px; }
   .soon-card .sec-lede { margin-bottom: 0; }
   .soon-card p + p, .soon-card p + .cta-row { margin-top: 14px; }
@@ -574,16 +590,33 @@
     <div class="wrap">
       <p class="sec-kicker">Attend</p>
       <h2>Come watch the sparks fly</h2>
-      <div class="soon-card">
-        <span class="soon">Tickets coming soon</span>
-        <p class="sec-lede">
-          Ticket and RSVP details are on the way. In the meantime, save the date:
-          Thursday, December 10 at Zymarium Meadery. Doors at 6pm, talks at 7pm.
-        </p>
-        <div class="cta-row">
-          <a class="btn btn-ghost btn-sm" href="assets/ignite-the-holidays-2026.ics" download aria-label="Add to calendar (downloads an .ics file)">Add to calendar (.ics)</a>
-          <a class="btn btn-ghost btn-sm" href="https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=Ignite+the+Holidays+2026&amp;dates=20261210T230000Z/20261210T230000Z&amp;location=Zymarium+Meadery,+1121+N+Mills+Ave,+Orlando,+FL+32803&amp;details=5-minute+Ignite+talks+from+the+Orlando+tech+community.+Doors+at+6pm,+talks+at+7pm.+https://ignitetheholidays.com/" target="_blank" rel="noopener" aria-label="Add to Google Calendar (opens in new tab)">Add to Google Calendar</a>
+      <div class="info-grid">
+        <div class="card ticket-card">
+          <span class="soon">Tickets on sale</span>
+          <p class="price">$10 <span>per person</span></p>
+          <p>
+            Grab a ticket on Eventbrite to hold your spot. Ten lightning talks,
+            plus Ignite Karaoke, where volunteers narrate a slide deck they have
+            never seen.
+          </p>
+          <div class="cta-row">
+            <a class="btn btn-fire" href="https://www.eventbrite.com/e/ignite-the-holidays-2026-tickets-2004552256761?aff=oddtdtcreator" target="_blank" rel="noopener" aria-label="Get tickets on Eventbrite (opens in new tab)"><span aria-hidden="true">🎟️</span> Get Tickets</a>
+          </div>
         </div>
+        <div class="card">
+          <h3>The details</h3>
+          <ul class="facts">
+            <li><strong>When:</strong> Thursday, December 10, 2026, 6pm to 9pm</li>
+            <li><strong>Doors:</strong> 6pm. Talks start at 7pm, so try to arrive early to check in.</li>
+            <li><strong>Where:</strong> <address>Zymarium Meadery<br>1121 N Mills Ave, Orlando, FL 32803</address></li>
+            <li><strong>Refunds:</strong> available up to 7 days before the event, through Eventbrite.</li>
+            <li><strong>Ages:</strong> everyone is welcome.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="cta-row save-date">
+        <a class="btn btn-ghost btn-sm" href="assets/ignite-the-holidays-2026.ics" download aria-label="Add to calendar (downloads an .ics file)">Add to calendar (.ics)</a>
+        <a class="btn btn-ghost btn-sm" href="https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=Ignite+the+Holidays+2026&amp;dates=20261210T230000Z/20261211T020000Z&amp;location=Zymarium+Meadery,+1121+N+Mills+Ave,+Orlando,+FL+32803&amp;details=5-minute+Ignite+talks+from+the+Orlando+tech+community.+Doors+at+6pm,+talks+at+7pm.+https://ignitetheholidays.com/" target="_blank" rel="noopener" aria-label="Add to Google Calendar (opens in new tab)">Add to Google Calendar</a>
       </div>
     </div>
   </section>
@@ -668,8 +701,9 @@
         <details>
           <summary>How much does it cost to attend?</summary>
           <p>
-            Ticket details are coming soon. Check the <a href="#attend">Attend</a>
-            section or join our Discord for updates.
+            Tickets are $10 per person, sold on
+            <a href="https://www.eventbrite.com/e/ignite-the-holidays-2026-tickets-2004552256761?aff=oddtdtcreator" target="_blank" rel="noopener" aria-label="Eventbrite (opens in new tab)">Eventbrite</a>.
+            Refunds are available up to 7 days before the event.
           </p>
         </details>
         <details>

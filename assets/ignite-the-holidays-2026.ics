@@ -7,6 +7,7 @@ BEGIN:VEVENT
 UID:ignite-the-holidays-2026@ignitetheholidays.com
 DTSTAMP:20261107T000000Z
 DTSTART:20261210T230000Z
+DTEND:20261211T020000Z
 SUMMARY:Ignite the Holidays 2026
 DESCRIPTION:5-minute Ignite talks from the Orlando tech community. Doors at
  6pm\, talks at 7pm. Details: https://ignitetheholidays.com/

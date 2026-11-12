@@ -168,6 +168,12 @@ describe("event details and privacy", () => {
     expect(document.querySelectorAll("#faq details > summary").length).toBeGreaterThanOrEqual(8);
   });
 
+  it("links to Eventbrite tickets and states the price", () => {
+    const link = document.querySelector('#attend a[href^="https://www.eventbrite.com/e/ignite-the-holidays-2026"]');
+    expect(link).toBeTruthy();
+    expect(document.getElementById("attend").textContent).toContain("$10");
+  });
+
   it("offers a valid calendar invite for the event", () => {
     const link = document.querySelector('#attend a[href$=".ics"]');
     expect(link).toBeTruthy();
@@ -176,6 +182,7 @@ describe("event details and privacy", () => {
     expect(ics).toMatch(/\r\nEND:VCALENDAR\r\n$/);
     // 6pm Eastern (EST, UTC-5) on Dec 10 is 23:00 UTC
     expect(ics).toContain("DTSTART:20261210T230000Z");
+    expect(ics).toContain("DTEND:20261211T020000Z");
     expect(ics).toContain("Zymarium Meadery");
     expect(ics.split("\r\n").every((l) => l.length <= 75)).toBe(true);
   });
